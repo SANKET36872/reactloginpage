@@ -9,18 +9,16 @@ const LoginPage = () => {
 
   const submitLogin = (e) => {
     e.preventDefault();
-    const data = [{ email: email, password: password }];
-    const localdata = localStorage.getItem("data");
-    localStorage.setItem("data", JSON.stringify(data) );
-    const local = JSON.parse(localdata);
+    const newdata = [];
 
-    if (email !== local[0].email) {
-      alert("email not match");
-    } else {
-      alert("email has been matched");
-    }
+     newdata.push([{ email: email, password: password }]);
+    const localdata = localStorage.getItem("data");
+
+    localStorage.setItem("data", JSON.stringify(newdata) );
+
+    const local = JSON.parse(localdata);
     console.log(local);
-    console.log(data);
+    console.log(newdata);
   };
 
   return (
